@@ -34,7 +34,7 @@ const sendEmail = async (req, res) => {
     html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Number:</strong> ${number}</p><p><strong>Message:</strong> ${message}</p>`,
   };
   const info = await sgMail.send(msg);
-  res.json(info);
+  res.json({msg: 'Email sent successfully'});
 };
 
 module.exports = sendEmail;

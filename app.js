@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Email Project</h1> <a href="/send">send email</a>');
 });
 
-app.get('/send',sendEmail)
+app.post('/send',sendEmail)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
@@ -47,7 +47,7 @@ const start = async () => {
   } catch (error) {
     console.log(error);
   } 
-  
+
 };
 
 start();
