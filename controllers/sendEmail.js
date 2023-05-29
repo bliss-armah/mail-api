@@ -25,13 +25,13 @@ const sendEmailEthereal = async (req, res) => {
 
 const sendEmail = async (req, res) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const { name, number, email, message } = req.body;
+  const { fullName, number, email, message } = req.body;
   const msg = {
     to: "blissarmah8@gmail.com", // Change to your recipient
     from: "blissarmah8@gmail.com", // Change to your verified sender
     subject: "Contact Form Submission From Portfolio Website",
-    text: `Name: ${name}\n Email: ${email}\n Number: ${number}\n\nMessage: ${message}`,
-    html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Number:</strong> ${number}</p><p><strong>Message:</strong> ${message}</p>`,
+    text: `Name: ${fullName}\n Email: ${email}\n Number: ${number}\n\nMessage: ${message}`,
+    html: `<p><strong>Name:</strong> ${fullName}</p><p><strong>Email:</strong> ${email}</p><p><strong>Number:</strong> ${number}</p><p><strong>Message:</strong> ${message}</p>`,
   };
   const info = await sgMail.send(msg);
   res.json({msg: 'Email sent successfully'});
