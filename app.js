@@ -4,7 +4,6 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
-const morgan = require('morgan')
 const rateLimiter = require('express-rate-limit')
 const helmet = require('helmet')
 const xss = require('xss-clean')
